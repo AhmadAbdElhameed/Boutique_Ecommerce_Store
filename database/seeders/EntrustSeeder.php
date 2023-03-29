@@ -29,22 +29,23 @@ class EntrustSeeder extends Seeder
                                     'description' => "Supervisor" ,
                                     'allowed_route' => 'admin']);
 
-        $customerRole = Role::create(['name' => 'Customer',
+        $customerRole = Role::create(['name' => 'customer',
                                     'display_name' => "Customer",
                                     'description' => "Customer" ,
                                     'allowed_route' => null]);
 
 
         $admin = User::create([
-                            'first_name' => 'Master',
-                            'last_name' => 'Admin',
-                            'email' => 'admin@admin.com',
-                            'email_verified_at' => now(),
-                            'mobile' => '01092991715',
-                            'user_image' => 'avatar.svg',
-                            'status' => 1,
-                            'password'  => bcrypt('12345678'),
-                            'remember_token' => Str::random(10)
+            'first_name' => 'Master',
+            'last_name' => 'Admin',
+            'username' => 'Admin99',
+            'email' => 'admin@admin.com',
+            'email_verified_at' => now(),
+            'mobile' => '01092991715',
+            'user_image' => 'avatar.svg',
+            'status' => 1,
+            'password'  => bcrypt('12345678'),
+            'remember_token' => Str::random(10)
         ]);
 
         $admin->attachRole($adminRole);
@@ -52,6 +53,7 @@ class EntrustSeeder extends Seeder
         $supervisor = User::create([
             'first_name' => 'Supervisor',
             'last_name' => 'System',
+            'username' => 'Supervisor99',
             'email' => 'supervisor@boutique.com',
             'email_verified_at' => now(),
             'mobile' => '01092991714',
@@ -66,6 +68,7 @@ class EntrustSeeder extends Seeder
         $customer = User::create([
             'first_name' => 'Ahmad',
             'last_name' => 'Abdelhameed',
+            'username' => 'Ahmad93',
             'email' => 'Ahmad@ahmad.com',
             'email_verified_at' => now(),
             'mobile' => '01092991713',
@@ -82,6 +85,7 @@ class EntrustSeeder extends Seeder
             $randomCustomer = User::create([
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
+                'username' => $faker->userName,
                 'email' => $faker->unique()->safeEmail,
                 'email_verified_at' => now(),
                 'mobile' => $faker->phoneNumber,
